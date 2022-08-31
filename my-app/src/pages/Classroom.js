@@ -20,4 +20,4 @@ const classRoom = (props) => {
     );
 }
 
-export default ClassRoom
+export default classRoom
