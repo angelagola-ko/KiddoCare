@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from "./components/Navigation"
 import Home from "./pages/Home"
 import ClassRoom from "./pages/Classroom";
+import Contact from "./pages/Contact";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path = "/classroom" element={<ClassRoom/>} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Container>
       </Router>
