@@ -1,9 +1,9 @@
 import {Container, Form} from "react-bootstrap"
-
+import {useState} from "react"
 
 
 const classRoom = (props) => {
-    const [ActivityAuto] = useState({title:"Finger Painting"})
+    // const [ActivityAuto] = useState({title:"Finger Painting"})
     return (
         <div className= "home">
             <h1 className= "homeTitle">
@@ -17,7 +17,7 @@ const classRoom = (props) => {
             <Form.Control
                 type= "Time"
                 name= "Title"
-                value= {ActivityAuto.title}
+                // value= {ActivityAuto.title}
                 />
         </Container>
         <Container>
