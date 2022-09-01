@@ -5,6 +5,9 @@ import Navigation from "./components/Navigation"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 
+import ClassRoom from "./pages/Classroom";
+import ContactForm from "./pages/ContactForm";
+
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path = "/Classroom" element={<ClassRoom/>} />
+          <Route path="/contactform" element={<ContactForm />} />
         </Routes>
       </Container>
       </Router>

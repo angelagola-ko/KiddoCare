@@ -17,6 +17,7 @@ const Navigation = (props) => {
                     <Nav.Link className="text-white" as={Link} to="/">Login</Nav.Link>
                     <Nav.Link className="text-white" as={Link} to="/">Logout</Nav.Link>
                     <Nav.Link className="text-white" as={Link} to="/">Home</Nav.Link>
+                    <Nav.Link className="text-white" as={Link} to="/Classroom">Classroom</Nav.Link>
             
                 </Nav>
 
