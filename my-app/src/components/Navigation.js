@@ -12,6 +12,7 @@ const Navigation = (props) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Nav className="nav">
                     <Nav.Link className="text-white" as={Link} to="/">Home</Nav.Link>
+                    <Nav.Link className="text-white" as={Link} to="/Classroom">Classroom</Nav.Link>
             
                 </Nav>
 
