@@ -7,6 +7,7 @@ import Login from "./pages/Login"
 
 import ClassRoom from "./pages/Classroom";
 import ContactForm from "./pages/ContactForm";
+import Footer from "./components/footer"
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         </Routes>
       </Container>
       </Router>
+      <Footer/>
     </div>
   )
 }
