@@ -6,7 +6,7 @@ import '../App.css';
 
 const Navigation = (props) => {
     return (
-        <Navbar className="bg text-white py-4">
+        <Navbar className="bg text-black py-4">
             <Container>
                 <Navbar.Brand className="text-white">KiddoCare</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
