@@ -14,7 +14,7 @@ function App() {
       <Container style={{ paddingTop: "50px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/classroom" element={<classRoom/>} />
+          <Route path="/Classroom" element={<classRoom/>} />
         </Routes>
       </Container>
       </Router>
