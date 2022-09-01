@@ -3,7 +3,8 @@ import Container from "react-bootstrap/Container"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from "./components/Navigation"
 import Home from "./pages/Home"
-import ClassRoom from "./pages/Classroom";
+
+import classRoom from "./pages/Classroom";
 import ContactForm from "./pages/ContactForm";
 
 
@@ -15,7 +16,8 @@ function App() {
       <Container style={{ paddingTop: "50px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path = "/classroom" element={<ClassRoom/>} />
+
+          <Route path = "/Classroom" element={<classRoom/>} />
           <Route path="/contactform" element={<ContactForm />} />
         </Routes>
       </Container>
