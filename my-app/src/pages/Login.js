@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { render } from "react-dom";
 
 
-function Home() {
+function Login() {
 
   return (
     <div>
-    <h1 className="text-white">Hello</h1>
+    <h1 className="text-white">Login</h1>
     </div>
   );
 }
 
-export default Home;
+export default Login;
