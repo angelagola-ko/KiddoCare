@@ -1,4 +1,4 @@
-import {Container, Form} from "react-bootstrap"
+import {Container, Form, Button} from "react-bootstrap"
 import {useState} from "react"
 
 
@@ -15,8 +15,9 @@ const ClassRoom = (props) => {
             <h2>Today's Activities</h2>
             <Form.Label>Today's Activities</Form.Label>
             <Form.Control
-                type= "Time"
-                name= "Title"
+                type= "title"
+                name= "title"
+
                 value= {ActivityAuto.title}
                 />
         </Container>
@@ -25,7 +26,7 @@ const ClassRoom = (props) => {
         </Container>
 
 
-        <button>Admin Add Activities</button>
+        <Button variant="primary">Admin Add Activities</Button>
         </div> 
     );
 }
