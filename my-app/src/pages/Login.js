@@ -69,6 +69,13 @@ const Login = (props) => {
                 // value={formState.password}
                 // onChange={handleChange}
               />
+                <input
+                className='form-input'
+                placeholder='Phone'
+                name='Phone'
+                type='Phone'
+                id='Phone'
+              />
                     <input
                 className='form-input'
                 placeholder='Verify Password'
@@ -77,13 +84,6 @@ const Login = (props) => {
                 id='verifypassword'
                 // value={formState.password}
                 // onChange={handleChange}
-              />
-                       <input
-                className='form-input'
-                placeholder='Phone'
-                name='Phone'
-                type='Phone'
-                id='Phone'
               />
                        <input
                 className='form-input'
@@ -149,8 +149,8 @@ const Login = (props) => {
                 // value={formState.password}
                 // onChange={handleChange}
               />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
+              <button className='btn d-block w-100 text-white' type='submit'>
+                Sign Up
               </button>
             {/* </form> */}
             {/* {error && <div>Login failed</div>} */}
@@ -181,8 +181,8 @@ const Login = (props) => {
                 // value={formState.password}
                 // onChange={handleChange}
               />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
+              <button className='btn d-block w-100 text-white' type='submit'>
+                Login
               </button>
             {/* </form> */}
             {/* {error && <div>Login failed</div>} */}
