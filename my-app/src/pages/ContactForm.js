@@ -1,139 +1,116 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import styled from "styled-components";
 
 function ContactForm() {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_u3o879c",
+        "template_8igo8no",
+        form.current,
+        "0gG95kH2Dykuhivpf"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log("message sent");
+        },
+        (error) => {
+          console.log(error.text);
+          console.log("ERROR");
+        }
+      );
+  };
   return (
-    <section class="mb-4">
-      <h2 class="h1-responsive font-weight-bold text-center my-4 text-white">
-        Contact us
-      </h2>
-      <p class="text-center w-responsive mx-auto mb-5 text-white">
-        If you have any questions or concerns, please contact us by filling out
-        the information below!
-      </p>
-
-      <div class="row">
-        <div class="col-md-9 mb-md-0 mb-5">
-          <form
-            id="contact-form"
-            name="contact-form"
-            action="mail.php"
-            method="POST"
-          >
-            <div class="row">
-              <div class="col-md-8 text-danger">
-                <div class="md-form mb-0">
-                  <label for="name" class="">
-                    Parent's First Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-            </div>
-            <br></br>
-
-            <div class="row">
-              <div class="col-md-8 text-warning">
-                <div class="md-form mb-0">
-                  <label for="lname" class="">
-                    Parent's Last Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="lname"
-                    name="lname"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-            </div>
-            <br></br>
-
-            <div class="row">
-              <div class="col-md-8 text-success">
-                <div class="md-form mb-0">
-                  <label for="cname" class="">
-                    Child's Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="cname"
-                    name="cname"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-            </div>
-            <br></br>
-
-            <div class="row">
-              <div class="col-md-8 text-primary">
-                <div class="md-form mb-0">
-                  <label for="email" class="">
-                    Email:
-                  </label>
-                  <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-            </div>
-            <br></br>
-
-            <div class="row">
-              <div class="col-md-8 text-info">
-                <div class="md-form mb-0">
-                  <label for="phone" class="">
-                    Phone Number:
-                  </label>
-                  <input
-                    type="text"
-                    id="phone"
-                    name="phone"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-            </div>
-            <br></br>
-
-            <div class="row">
-              <div class="col-md-8 text-light">
-                <div class="md-form">
-                  <label for="message">Your Message:</label>
-                  <textarea
-                    type="text"
-                    id="message"
-                    name="message"
-                    rows="2"
-                    class="form-control md-textarea"
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-          </form>
-          <br></br>
-
-          <div class="text-center text-md-left">
-            <a
-              class="btn btn-secondary"
-              onclick="document.getElementById('contact-form').submit();"
-            >
-              Submit
-            </a>
-          </div>
-          <div class="status"></div>
+    <StyledContactForm>
+      <h1 class="text-white text-center">Contact Us</h1>
+      <form ref={form} onSubmit={sendEmail}>
+        <div class="text-danger">
+          <label>Parent's First Name:</label>
+          <input type="text white" name="first_name" />
         </div>
-      </div>
-    </section>
+
+        <div class="text-warning">
+          <label>Parent's Last Name:</label>
+          <input type="text" name="last_name" />
+        </div>
+
+        <div class="text-success">
+          <label>Child's Name:</label>
+          <input type="text" name="child_name" />
+        </div>
+
+        <div class="text-primary">
+          <label>Email</label>
+          <input type="email" name="email" />
+        </div>
+
+        <div class="text-info">
+          <label>Phone Number:</label>
+          <input type="phone" name="phone" />
+        </div>
+        
+        <div class="text-light">
+        <label>Message</label>
+        <textarea name="message" />
+        <input type="submit" value="Send" />
+        </div>
+
+      </form>
+    </StyledContactForm>
   );
 };
 
 export default ContactForm;
+
+const StyledContactForm = styled.div`
+  width: 400px;
+  form {
+    display: flex;
+    align-items: flex-center;
+    flex-direction: column;
+    width: 100%;
+    font-size: 16px;
+    input {
+      color: white;
+      width: 100%;
+      height: 35px;
+      padding: 7px;
+      outline: none;
+      border-radius: 5px;
+      border: 1px solid rgb(220, 220, 220);
+      &:focus {
+        border: 2px solid rgba(0, 206, 158, 1);
+      }
+    }
+    textarea {
+      color: white;
+      max-width: 100%;
+      min-width: 100%;
+      width: 100%;
+      max-height: 100px;
+      min-height: 100px;
+      padding: 7px;
+      outline: none;
+      border-radius: 5px;
+      border: 1px solid rgb(220, 220, 220);
+      &:focus {
+        border: 2px solid rgba(0, 206, 158, 1);
+      }
+    }
+    label {
+      margin-top: 1rem;
+    }
+    input[type="submit"] {
+      margin-top: 2rem;
+      cursor: pointer;
+      background-color: purple;
+      color: white;
+      border: none;
+    }
+  }
+`;
