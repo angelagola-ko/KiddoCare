@@ -2,55 +2,25 @@ import React from "react";
 
 function ContactForm() {
   return (
-    <section class="mb-4 text-white">
-      <h2 class="h1-responsive font-weight-bold text-center my-4">
+    <section class="mb-4">
+      <h2 class="h1-responsive font-weight-bold text-center my-4 text-white">
         Contact us
       </h2>
-      <p class="text-center w-responsive mx-auto mb-5">
+      <p class="text-center w-responsive mx-auto mb-5 text-white">
         If you have any questions or concerns, please contact us by filling out
         the information below!
       </p>
 
       <div class="row">
-        <div class="col-md-9 mb-md-0 mb-5 text-white ">
+        <div class="col-md-9 mb-md-0 mb-5">
           <form
             id="contact-form"
             name="contact-form"
             action="mail.php"
             method="POST"
           >
-            {/* <div class="row">
-              <div class="col-md-6">
-                <div class="md-form mb-0">
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    class="form-control"
-                  />
-                  <label for="name" class="">
-                    First Name
-                  </label>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="md-form mb-0">
-                  <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    class="form-control"
-                  />
-                  <label for="email" class="">
-                    Your email
-                  </label>
-                </div>
-              </div>
-            </div> */}
-
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-8 text-danger">
                 <div class="md-form mb-0">
                   <label for="name" class="">
                     Parent's First Name:
@@ -64,9 +34,10 @@ function ContactForm() {
                 </div>
               </div>
             </div>
+            <br></br>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-8 text-warning">
                 <div class="md-form mb-0">
                   <label for="lname" class="">
                     Parent's Last Name:
@@ -80,9 +51,10 @@ function ContactForm() {
                 </div>
               </div>
             </div>
+            <br></br>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-8 text-success">
                 <div class="md-form mb-0">
                   <label for="cname" class="">
                     Child's Name:
@@ -96,9 +68,10 @@ function ContactForm() {
                 </div>
               </div>
             </div>
+            <br></br>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-8 text-primary">
                 <div class="md-form mb-0">
                   <label for="email" class="">
                     Email:
@@ -112,9 +85,10 @@ function ContactForm() {
                 </div>
               </div>
             </div>
+            <br></br>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-8 text-info">
                 <div class="md-form mb-0">
                   <label for="phone" class="">
                     Phone Number:
@@ -128,9 +102,10 @@ function ContactForm() {
                 </div>
               </div>
             </div>
+            <br></br>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-8 text-light">
                 <div class="md-form">
                   <label for="message">Your Message:</label>
                   <textarea
@@ -144,13 +119,14 @@ function ContactForm() {
               </div>
             </div>
           </form>
+          <br></br>
 
           <div class="text-center text-md-left">
             <a
-              class="btn btn-primary"
+              class="btn btn-secondary"
               onclick="document.getElementById('contact-form').submit();"
             >
-              Send
+              Submit
             </a>
           </div>
           <div class="status"></div>
