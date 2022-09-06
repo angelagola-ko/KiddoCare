@@ -31,7 +31,7 @@ const Login = (props) => {
   //  };
   return (
     <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
+      <div className="card col-12 col-md-6">
         <div className="card">
           <h4 className="card-header">Sign Up</h4>
           <div className="card-body">
@@ -121,7 +121,7 @@ const Login = (props) => {
               // value={formState.password}
               // onChange={handleChange}
             />
-            <h1 className="text-white">Emergency Contact</h1>
+            <h4 className="text-white">Emergency Contact</h4>
             <input
               className="form-input"
               placeholder="First Name"
