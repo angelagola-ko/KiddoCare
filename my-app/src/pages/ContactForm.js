@@ -53,17 +53,16 @@ function ContactForm() {
           <label>Phone Number:</label>
           <input type="phone" name="phone" />
         </div>
-        
-        <div class="text-light">
-        <label>Message</label>
-        <textarea name="message" />
-        <input type="submit" value="Send" />
-        </div>
 
+        <div class="text-light">
+          <label>Message</label>
+          <textarea name="message" />
+          <input type="submit" value="Send" />
+        </div>
       </form>
     </StyledContactForm>
   );
-};
+}
 
 export default ContactForm;
 
