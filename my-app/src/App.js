@@ -7,6 +7,7 @@ import Login from "./pages/Login"
 import ClassRoom from "./pages/Classroom";
 import ContactForm from "./pages/ContactForm";
 import Footer from "./components/footer"
+import Parentpf from './pages/Parentpf'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path = "/classroom" element={<ClassRoom/>} />
           <Route path="/contactform" element={<ContactForm />} />
+          <Route path="/profile" element={<Parentpf />}/>
         </Routes>
       </Container>
       </Router>
