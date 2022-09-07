@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Switch from "../components/Switch";
-import image from '../images/profilePic.jpg';
+import image from '../images/gary.png';
 import child from '../images/kid.png'
 import Nav from "react-bootstrap/Nav";
 
 const Profile = (props) => {
-
   const [value, setValue] = useState(false);
 
   return (
@@ -13,30 +12,38 @@ const Profile = (props) => {
       <div className="flex-row justify-content-center">
         {/* <img src="" alt="" class="image--cover" /> */}
         <div className="col-md-7">
-          <div className="card p-3 py-4">
-          <div className="text-center">
-                <img src={image} alt='Profile' width="100" className="rounded-circle"></img>
+          <div className="card py-4">
+            <h3 className="card-header  text-center">Gary Almes</h3>
+            <div className="card-body text-center">
+              <div className="p-4">
+                <img
+                  src={image}
+                  alt="Profile"
+                  width="100"
+                  className="rounded-circle"
+                ></img>
+              </div>
+              <btn type="button" className="btn btn-outline-primary">
+                Contact Information
+              </btn>
+              <div class="text-center">
+                <div className="pt-4 text-white">
+                  Notifications
+                  <Switch isOn={value} handleToggle={() => setValue(!value)} />
+                </div>
+              </div>
             </div>
-            <div class="text-center mt-3">
-                    <h5 className='text-white text-center'>Mary Tolmes</h5>
-                    <div className="px-4 mt-1">
-                    </div>
-          <div className="card-body text-white">
-            Notifications
-            <Switch isOn={value} handleToggle={()=> setValue(!value)} />
+          </div>
         </div>
       </div>
-      </div>
-
-      </div>
-      </div>
+      
       <div class="second d-flex flex-row mt-2">
                     <div class="image mr-3">
                      <img src= {child}  alt='Child' width ='60' className="rounded-circle"></img>
                     </div>
                     <div class="">
                         <div class="d-flex flex-row mb-1">
-                            <span className = 'text-white'>Tommy Tolmes</span>
+                            <span className = 'text-white'>Caleb Almes</span>
                         </div>
                         <div>
                             <button className="btn btn-light btn-sm">Edit</button><a href = '/kidprofile'></a>
