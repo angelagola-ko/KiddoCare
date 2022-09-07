@@ -1,6 +1,6 @@
 import {Container, Form, Button} from "react-bootstrap"
 import {useState, useEffect} from "react"
-import React from "react"
+import React, {Component} from "react"
 
 
 // function Children() {
@@ -8,7 +8,7 @@ import React from "react"
 //     useEffect( () => {
 //         childrendata()}, [])
 //     }
-//     const childrendata = async () => {
+//     const childrendata = async    () => {
 //         const {data} = await axios.get('/');
 //         setChildren(data);
 //     };
@@ -22,6 +22,7 @@ const ClassRoom = (props) => {
     today = mm + '/' + dd + '/' + yyyy;
 
 // add functionality to button to "today's activities here". Normal JS//
+
     return (
         <div className= "home">
             <h1 className= "homeTitle text-white">
@@ -31,12 +32,16 @@ const ClassRoom = (props) => {
         
         <Container>
             <h2 className="text-white">Today's Activities</h2>
-            {/* <Form.Label className="text-white">Today's Activities</Form.Label> */}
-            <Form.Control
-                type= "title"
-                name= "title"
-                value= {ActivityAuto.title}
-                />
+        <ul>
+        <React.Fragment>
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-primary">Finger Painting</li>
+            <li class="list-group-item list-group-item-primary">Nap time</li>
+            <li class="list-group-item list-group-item-primary">Lunch</li>
+          </ul>
+          <Button onClick={console.log("test")} variant="primary">Admin Add Activities</Button>
+        </React.Fragment>
+        </ul>
         </Container>
         <br></br>
         <br></br>
@@ -45,9 +50,6 @@ const ClassRoom = (props) => {
             <h2 className="text-white">Kids of Classroom 187</h2>
             {/* insert database with students here */}
         </Container>
-
-
-        <Button onClick={console.log("test")} variant="primary">Admin Add Activities</Button>
         </div> 
     );
 }
