@@ -12,7 +12,10 @@ import React, {Component} from "react"
 //         const {data} = await axios.get('/');
 //         setChildren(data);
 //     };
-
+function App() {
+    const [activity_list, setActivity] = useState(["Finger Paint", "Lunch", "Nap Time"])
+}
+const myList = activityArray.map((item) => <p> {item}</p>)
 const ClassRoom = (props) => {
     const [ActivityAuto] = useState({title:"Finger Painting", time: "10:30"})
     let today = new Date();
@@ -22,7 +25,6 @@ const ClassRoom = (props) => {
     today = mm + '/' + dd + '/' + yyyy;
 
 // add functionality to button to "today's activities here". Normal JS//
-
     return (
         <div className= "home">
             <h1 className= "homeTitle text-white">
@@ -33,8 +35,9 @@ const ClassRoom = (props) => {
         <Container>
             <h2 className="text-white">Today's Activities</h2>
         <ul>
-        <React.Fragment>
+        <React.Fragment className= "App">
           <ul class="list-group">
+            {activity_list.map((activity, index) => <p key = {index}>{activity}</p>)}
             <li class="list-group-item list-group-item-primary">Finger Painting</li>
             <li class="list-group-item list-group-item-primary">Nap time</li>
             <li class="list-group-item list-group-item-primary">Lunch</li>
