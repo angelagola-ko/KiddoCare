@@ -1,16 +1,25 @@
 const Children = require ("../models/Children")
 const mongoose = require ('mongoose')
-
+const connection = require("../config/connection")
 
 
 const childrenData = [
-    new Child ({
-        Name: "Alexis Rose",
-        Age: 5,
-        Allergies: "Peanuts",
-        Notes: "Does not get along with Mike",
-        CreatedAt: Date.now
-    })
+  {
+    Name: "Alexis Rose",
+    Age: 5,
+    Allergies: "Peanuts",
+    Notes: "Does not get along with Stevie",
+    CreatedAt: Date.now
+  },
+  {
+    Name: "Stevie Budd",
+    Age: 4,
+    Allergies: "None",
+    Notes: "Does not get along with Alexis",
+    CreatedAt: Date.now
+  }
+
+    
 ]
 //connect mongoose
 // mongoose
