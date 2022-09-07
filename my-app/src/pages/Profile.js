@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Switch from "../components/Switch";
-import image from '../images/profilePic.jpg'
+import image from '../images/profilePic.jpg';
+import child from '../images/kid.png'
 
 const Profile = (props) => {
 
@@ -25,8 +26,22 @@ const Profile = (props) => {
         </div>
       </div>
       </div>
+
       </div>
       </div>
+      <div class="second d-flex flex-row mt-2">
+                    <div class="image mr-3">
+                     <img src= {child}  alt='Child' width ='60' className="rounded-circle"></img>
+                    </div>
+                    <div class="">
+                        <div class="d-flex flex-row mb-1">
+                            <span className = 'text-white'>Tommy Tolmes</span>
+                        </div>
+                        <div>
+                            <button className="btn btn-light btn-sm">Edit</button>
+                        </div>
+                    </div>
+    </div>
     </main>
   );
 };
