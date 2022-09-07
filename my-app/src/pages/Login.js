@@ -106,7 +106,7 @@ const Login = (props) => {
               className="form-input text-white"
               placeholder="Verify Password"
               name="verifypassword"
-              type="verifypassword"
+              type="password"
               id="verifypassword"
               // value={formState.password}
               // onChange={handleChange}
