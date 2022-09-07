@@ -1,9 +1,30 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
+import { useState } from "react"
+import Cookie from "js-cookie"
+import { Alert, Button, Container, Form } from 'react-bootstrap'
 
 const Login = (props) => {
+  const [ name, setName, setLastName, setEmail] = useState("");
+  const [ loginCreds, setLoginCreds ] = useState({ email: "", password: "" })
+  const [ formMessage, setFormMessage ] = useState({ type: "", msg: "" })
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    setFormMessage({ type: "", msg: "" })
+    const authCheck = await fetch("/api/user/auth", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(loginCreds)
+    })
+    const authResult = await authCheck.json()
+
+    // If the login was good, save the returned token as a cookie
+    if( authResult.result === "success" ){
+      Cookie.set("auth-token", authResult.token)
+      setFormMessage({ type: "success", msg: "Your login was successful. Proceed!" })
+    } else {
+      setFormMessage({ type: "danger", msg: "We could not log you in with the credentials provided." })
+    }
+    setLoginCreds()
+  }
   //   const [formState, setFormState] = useState({ email: '', password: '' });
   //   const [login, { error }] = useMutation(LOGIN_USER);
   //   // update state based on form input changes
@@ -30,6 +51,7 @@ const Login = (props) => {
   //     }
   //  };
   return (
+    <Form onSubmit= {handleLogin}>
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
@@ -42,6 +64,7 @@ const Login = (props) => {
               name="firstname"
               type="firstname"
               id="firstname"
+              onChange={(e) => setName(e.target.value)}
             />
             <input
               className="form-input text-white"
@@ -49,6 +72,7 @@ const Login = (props) => {
               name="lastname"
               type="lastname"
               id="lastname"
+              onChange= {(e) => setLastName(e.target.value)}
             />
 
             <input
@@ -57,6 +81,7 @@ const Login = (props) => {
               name="email"
               type="email"
               id="email"
+              onChange={(e) => setEmail(e.target.value)}
               // value={formState.email}
               // onChange={handleChange}
             />
@@ -66,6 +91,7 @@ const Login = (props) => {
               name="password"
               type="password"
               id="password"
+              onChange={(e) => setEmail(e.target.value)}
               // value={formState.password}
               // onChange={handleChange}
             />
@@ -114,7 +140,7 @@ const Login = (props) => {
             />
             <input
               className="form-input text-white"
-              placeholder="zipcode"
+              placeholder="Zipcode"
               name="zipcode"
               type="zipcode"
               id="zipcode"
@@ -184,12 +210,15 @@ const Login = (props) => {
             <button className="btn d-block w-100 text-white" type="submit">
               Login
             </button>
+            
             {/* </form> */}
             {/* {error && <div>Login failed</div>} */}
           </div>
         </div>
       </div>
     </main>
+
+</Form>
   );
 };
 
