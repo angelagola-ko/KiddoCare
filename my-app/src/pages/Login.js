@@ -1,196 +1,101 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
+import { useState } from 'react';
 
-const Login = (props) => {
-  //   const [formState, setFormState] = useState({ email: '', password: '' });
-  //   const [login, { error }] = useMutation(LOGIN_USER);
-  //   // update state based on form input changes
-  //   const handleChange = (event) => {
-  //     const { name, value } = event.target;
+export default function Form() {
 
-  //     setFormState({
-  //       ...formState,
-  //       [name]: value,
-  //     });
-  //   };
-  //  //submit form
-  //  const handleFormSubmit = async event => {
-  //     event.preventDefault();
+// States for registration
+const [name, setName] = useState('');
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
 
-  //     try {
-  //         const { data } = await login({
-  //             variables: { ...formState }
-  //         });
+// States for checking the errors
+const [submitted, setSubmitted] = useState(false);
+const [error, setError] = useState(false);
 
-  //         Auth.login(data.login.token);
-  //     } catch (e) {
-  //         console.error(e);
-  //     }
-  //  };
-  return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Sign Up</h4>
-          <div className="card-body">
-            {/* <form onSubmit={handleFormSubmit}> */}
-            <input
-              className="form-input text-white"
-              placeholder="First Name"
-              name="firstname"
-              type="firstname"
-              id="firstname"
-            />
-            <input
-              className="form-input text-white"
-              placeholder="Last Name"
-              name="lastname"
-              type="lastname"
-              id="lastname"
-            />
-
-            <input
-              className="form-input text-white"
-              placeholder="Your email"
-              name="email"
-              type="email"
-              id="email"
-              // value={formState.email}
-              // onChange={handleChange}
-            />
-            <input
-              className="form-input text-white"
-              placeholder="Password"
-              name="password"
-              type="password"
-              id="password"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <input
-              className="form-input text-white"
-              placeholder="Phone"
-              name="Phone"
-              type="Phone"
-              id="Phone"
-            />
-            <input
-              className="form-input text-white"
-              placeholder="Verify Password"
-              name="verifypassword"
-              type="verifypassword"
-              id="verifypassword"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <input
-              className="form-input text-white"
-              placeholder="Address"
-              name="Address"
-              type="Address"
-              id="Address"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <input
-              className="form-input text-white"
-              placeholder="City"
-              name="City"
-              type="City"
-              id="City"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <input
-              className="form-input text-white"
-              placeholder="State"
-              name="State"
-              type="State"
-              id="State"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <input
-              className="form-input text-white"
-              placeholder="zipcode"
-              name="zipcode"
-              type="zipcode"
-              id="zipcode"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <h1 className="text-white">Emergency Contact</h1>
-            <input
-              className="form-input text-white"
-              placeholder="First Name"
-              name="emergencyfirstName"
-              type="emergencyfirstName"
-              id="emergencyfirstName"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <input
-              className="form-input text-white"
-              placeholder="Last Name"
-              name="emergencylast"
-              type="emergencylast"
-              id="emergencylast"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <input
-              className="form-input text-white"
-              placeholder="Phone"
-              name="phone"
-              type="phone"
-              id="phone"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <button className="btn d-block w-100 text-white" type="submit">
-              Sign Up
-            </button>
-            {/* </form> */}
-            {/* {error && <div>Login failed</div>} */}
-          </div>
-        </div>
-      </div>
-      <br></br>
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Login</h4>
-          <div className="card-body">
-            {/* <form onSubmit={handleFormSubmit}> */}
-            <input
-              className="form-input text-white"
-              placeholder="Your email"
-              name="email"
-              type="email"
-              id="email"
-              // value={formState.email}
-              // onChange={handleChange}
-            />
-            <input
-              className="form-input text-white"
-              placeholder="******"
-              name="password"
-              type="password"
-              id="password"
-              // value={formState.password}
-              // onChange={handleChange}
-            />
-            <button className="btn d-block w-100 text-white" type="submit">
-              Login
-            </button>
-            {/* </form> */}
-            {/* {error && <div>Login failed</div>} */}
-          </div>
-        </div>
-      </div>
-    </main>
-  );
+// Handling the name change
+const handleName = (e) => {
+	setName(e.target.value);
+	setSubmitted(false);
 };
 
-export default Login;
+// Handling the email change
+const handleEmail = (e) => {
+	setEmail(e.target.value);
+	setSubmitted(false);
+};
+
+// Handling the password change
+const handlePassword = (e) => {
+	setPassword(e.target.value);
+	setSubmitted(false);
+};
+
+// Handling the form submission
+const handleSubmit = (e) => {
+	e.preventDefault();
+	if (name === '' || email === '' || password === '') {
+	setError(true);
+	} else {
+	setSubmitted(true);
+	setError(false);
+	}
+};
+
+// Showing success message
+const successMessage = () => {
+	return (
+	<div
+		className="success"
+		style={{
+		display: submitted ? '' : 'none',
+		}}>
+		<h1>User {name} successfully registered!!</h1>
+	</div>
+	);
+};
+
+// Showing error message if error is true
+const errorMessage = () => {
+	return (
+	<div
+		className="error"
+		style={{
+		display: error ? '' : 'none',
+		}}>
+		<h1>Please enter all the fields</h1>
+	</div>
+	);
+};
+
+return (
+	<div className="form">
+	<div>
+		<h1>User Registration</h1>
+	</div>
+
+	{/* Calling to the methods */}
+	<div className="messages">
+		{errorMessage()}
+		{successMessage()}
+	</div>
+
+	<form>
+		{/* Labels and inputs for form data */}
+		<label className="label">Name</label>
+		<input onChange={handleName} className="input"
+		value={name} type="text" />
+
+		<label className="label">Email</label>
+		<input onChange={handleEmail} className="input"
+		value={email} type="email" />
+
+		<label className="label">Password</label>
+		<input onChange={handlePassword} className="input"
+		value={password} type="password" />
+
+		<button onClick={handleSubmit} className="btn" type="submit">
+		Submit
+		</button>
+	</form>
+	</div>
+);
+}
