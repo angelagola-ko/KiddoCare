@@ -37,7 +37,7 @@ const ClassRoom = (props) => {
         <ul>
         <React.Fragment className= "App">
           <ul class="list-group">
-          <li class="list-group-item list-group-item-primary">{activity_list.map((activity, index) => <p key = {index}>{activity}</p>)}</li>
+          <li class="list-group-item list-group-item-primary text-white ">{activity_list.map((activity, index) => <p key = {index}>{activity}</p>)}</li>
             {/* <li class="list-group-item list-group-item-primary">Finger Painting</li>
             <li class="list-group-item list-group-item-primary">Nap time</li>
             <li class="list-group-item list-group-item-primary">Lunch</li> */}
