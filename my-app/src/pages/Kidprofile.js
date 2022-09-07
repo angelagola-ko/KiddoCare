@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
-import Switch from "../components/Switch";
-import image from '../images/profilePic.jpg'
+import image from '../images/kid.png'
 
-const Profile = (props) => {
-
-  const [value, setValue] = useState(false);
+const kidProfile = (props) => {
 
   return (
     <main className="container mt-5">
@@ -16,13 +13,9 @@ const Profile = (props) => {
                 <img src={image} alt='Profile' width="100" className="rounded-circle"></img>
             </div>
             <div class="text-center mt-3">
-                    <h5 className='text-white text-center'>Mary Tolmes</h5>
+                    <h5 className='text-white text-center'>Tommy Tolmes</h5>
                     <div className="px-4 mt-1">
                     </div>
-          <div className="card-body text-white">
-            Notifications
-            <Switch isOn={value} handleToggle={()=> setValue(!value)} />
-        </div>
       </div>
       </div>
       </div>
@@ -31,4 +24,4 @@ const Profile = (props) => {
   );
 };
 
-export default Profile;
+export default kidProfile;
