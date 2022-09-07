@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Switch from "../components/Switch";
 import image from '../images/profilePic.jpg';
 import child from '../images/kid.png'
+import Nav from "react-bootstrap/Nav";
 
 const Profile = (props) => {
 
@@ -38,7 +39,7 @@ const Profile = (props) => {
                             <span className = 'text-white'>Tommy Tolmes</span>
                         </div>
                         <div>
-                            <button className="btn btn-light btn-sm">Edit</button>
+                            <button className="btn btn-light btn-sm">Edit</button><a href = '/kidprofile'></a>
                         </div>
                     </div>
     </div>
