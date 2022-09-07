@@ -3,15 +3,15 @@ import {useState, useEffect} from "react"
 import React from "react"
 import axios from 'axios';
 
-function Children() {
-    const [seedChildren] = useState([])
-    useEffect( () => {
-        childrendata()}, [])
-    }
-    const childrendata = async () => {
-        const {data} = await axios.get('/');
-        setChildren(data);
-    };
+// function Children() {
+//     const [seedChildren] = useState([])
+//     useEffect( () => {
+//         childrendata()}, [])
+//     }
+//     const childrendata = async () => {
+//         const {data} = await axios.get('/');
+//         setChildren(data);
+//     };
 
 const ClassRoom = (props) => {
     const [ActivityAuto] = useState({title:"Finger Painting", time: "10:30"})
