@@ -1,6 +1,17 @@
 import {Container, Form, Button} from "react-bootstrap"
-import {useState} from "react"
+import {useState, useEffect} from "react"
+import React from "react"
+import axios from 'axios';
 
+// function Children() {
+//     const [seedChildren] = useState([])
+//     useEffect( () => {
+//         childrendata()}, [])
+//     }
+//     const childrendata = async () => {
+//         const {data} = await axios.get('/');
+//         setChildren(data);
+//     };
 
 const ClassRoom = (props) => {
     const [ActivityAuto] = useState({title:"Finger Painting", time: "10:30"})
@@ -9,6 +20,7 @@ const ClassRoom = (props) => {
     const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     const yyyy = today.getFullYear();
     today = mm + '/' + dd + '/' + yyyy;
+
 // add functionality to button to "today's activities here". Normal JS//
     return (
         <div className= "home">
@@ -35,7 +47,7 @@ const ClassRoom = (props) => {
         </Container>
 
 
-        <Button variant="primary">Admin Add Activities</Button>
+        <Button onClick={console.log("test")} variant="primary">Admin Add Activities</Button>
         </div> 
     );
 }
