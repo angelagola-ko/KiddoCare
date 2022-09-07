@@ -9,7 +9,7 @@ const Login = (props) => {
   const handleLogin = async (e) => {
     e.preventDefault()
     setFormMessage({ type: "", msg: "" })
-    const authCheck = await fetch("/utils/auth.js", {
+    const authCheck = await fetch("/api/user/auth", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginCreds)

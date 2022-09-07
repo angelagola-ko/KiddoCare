@@ -1,4 +1,5 @@
 const {Schema, model} = require("mongoose");
+const bcrypt = require('bcrypt')
 
 const UserSchema = new Schema ({
     user_name: {
@@ -17,6 +18,10 @@ const UserSchema = new Schema ({
         require: true,
         
     },
+})
+
+UserSchema.pre('save', async function () {
+    this.password = await bcrypt.has(this._doc.password, 10)
 })
 
 const User = model("User", UserSchema)
