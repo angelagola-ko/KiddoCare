@@ -49,7 +49,7 @@ const Login = (props) => {
           style={{
             display: submitted ? '' : 'none',
           }}>
-          <h1>User {name} successfully registered!!</h1>
+          <h1 className="text-primary">User {name} successfully registered!!</h1>
         </div>
       );
     };
@@ -62,7 +62,7 @@ const Login = (props) => {
           style={{
             display: error ? '' : 'none',
           }}>
-          <h1>Please enter all the fields</h1>
+          <h1 className="text-primary">Please enter all the fields</h1>
         </div>
       );
     };
@@ -89,7 +89,7 @@ const Login = (props) => {
             value={email} type="email" />
    
           <label className="label">Password</label>
-          <input onChange={handlePassword} className="input d-block"
+          <input onChange={handlePassword} className="input d-block text-white"
             value={password} type="password" />
    <br></br>
           <button onClick={handleSubmit} className="btn bg-primary text-white" type="submit">
