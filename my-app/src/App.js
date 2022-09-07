@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import ClassRoom from "./pages/Classroom";
 import ContactForm from "./pages/ContactForm";
 import Profile from "./pages/Profile";
+import KidProfile from "./pages/Kidprofile";
 import Footer from "./components/footer";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/classroom" element={<ClassRoom />} />
             <Route path="/contactform" element={<ContactForm />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/kidprofile" element={<KidProfile />} />
           </Routes>
         </Container>
       </Router>
