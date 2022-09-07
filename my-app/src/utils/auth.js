@@ -1,56 +1,73 @@
-import decode from 'jwt-decode';
+const jwt = require('jsonwebtoken');
+const cookie = require("cookie")
 
+const dotenv = require("dotenv");
+dotenv.config()
 
-    class AuthService {
-        // retrieve data saved in token
-        getProfile() {
-          return decode(this.getToken());
+// const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = "Pyc9X6W7iPxou&caFYdDP";
+
+const expiration = '200h';
+
+console.log("creating a new token now")
+module.exports = {
+  authMiddleware: function(req) {
+    // allows token to be sent via req.body, req.query, or headers
+    let token = req.body.token || req.query.token || req.headers.authorization;
+
+    // ["Bearer", "<tokenvalue>"]
+    if (req.headers.authorization) {
+      token = token
+        .split(' ')
+        .pop()
+        .trim();
+    }
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const data = jwt.verify(token, jwtSecret, { maxAge: expiration });
+      req.user = data;
+    } catch {
+      console.log('Invalid token');
+    }
+
+    return req;
+  },
+
+  signToken: function({ user_name, email, _id }) {
+    const payload = { 
+      user_name, 
+      email, 
+      _id 
+    };
+
+    // console.log("inside signToken")
+    // console.log("secret: ", jwtSecret)
+    // console.log("expiration: ",expiration)
+
+    return jwt.sign(payload, jwtSecret, { expiresIn: expiration });
+  },
+
+  decodeToken: (token) => {
+    console.log("-----------------------")
+    console.log("decoding token...")
+    return jwt.verify(token, jwtSecret, function (err, decoded){
+      console.log("decoded: ", decoded)
+      if (err){
+        err = {
+          valid: "FALSE",
+          name: "jwt token error",
+          message: "invalid json web token"
         }
-      
-        // check if the user is still logged in
-        loggedIn() {
-          // Checks if there is a saved token and it's still valid
-          const token = this.getToken();
-          // use type coersion to check if token is NOT undefined and the token is NOT expired
-          return !!token && !this.isTokenExpired(token);
-        }
-      
-        // check if the token has expired
-        isTokenExpired(token) {
-          try {
-            const decoded = decode(token);
-            if (decoded.exp < Date.now() / 1000) {
-              return true;
-            } else {
-              return false;
-            }
-          } catch (err) {
-            return false;
-          }
-        }
-      
-        // retrieve token from localStorage
-        getToken() {
-          // Retrieves the user token from localStorage
-          return localStorage.getItem('id_token');
-        }
-      
-        // set token to localStorage and reload page to homepage
-        login(idToken) {
-          // Saves user token to localStorage
-          localStorage.setItem('id_token', idToken);
-      
-          window.location.assign('/');
-        }
-      
-        // clear token from localStorage and force logout with reload
-        logout() {
-          // Clear user token and profile data from localStorage
-          localStorage.removeItem('id_token');
-          // this will reload the page and reset the state of the application
-          window.location.assign('/');
-        }
+        return err
+      } else {
+        console.log("-----------------------")
+        decoded.valid="TRUE"
+        return decoded
       }
-
-
-export default new AuthService();
+    })
+  }
+};
