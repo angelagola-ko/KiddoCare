@@ -66,8 +66,15 @@ const Login = (props) => {
         </div>
       );
     };
+
+    const style = {
+      display:"flex",
+      justifyContent: "center",
+    }
    
     return (
+      <div style={style}>
+
       <div className="form text-white">
         <div>
           <h1>User Registration</h1>
@@ -97,6 +104,7 @@ const Login = (props) => {
           </button>
         </form>
       </div>
+            </div>
     );
   }
 

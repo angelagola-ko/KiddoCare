@@ -25,9 +25,17 @@ function ContactForm() {
         }
       );
   };
+
+  const style = {
+    display:"flex",
+    justifyContent: "center"
+  }
+  
   return (
+    <div style={style}>
+
     <StyledContactForm>
-      <h1 class="text-white text-center">Contact Us</h1>
+      <h1 class="text-white text-center" >Contact Us</h1>
       <form ref={form} onSubmit={sendEmail}>
         <div class="text-danger">
           <label>Parent's First Name:</label>
@@ -61,6 +69,7 @@ function ContactForm() {
         </div>
       </form>
     </StyledContactForm>
+  </div>
   );
 }
 

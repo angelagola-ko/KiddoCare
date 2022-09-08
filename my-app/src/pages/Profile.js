@@ -7,11 +7,17 @@ import Nav from "react-bootstrap/Nav";
 const Profile = (props) => {
   const [value, setValue] = useState(false);
 
+
+  const style = {
+    display:"inline",
+    justifyContent: "center",
+
+  }
   return (
-    <main className="container mt-5">
+    <main className="container mt-5" style={style}>
       <div className="flex-row justify-content-center">
         {/* <img src="" alt="" class="image--cover" /> */}
-        <div className="col-md-7">
+        <div className="col-md-8">
           <div className="card py-4">
             <h3 className="card-header  text-center">Gary Almes</h3>
             <div className="card-body text-center">
@@ -21,7 +27,7 @@ const Profile = (props) => {
                   alt="Profile"
                   width="100"
                   className="rounded-circle"
-                ></img>
+                  ></img>
               </div>
               <btn type="button" className="btn btn-outline-primary">
                 Contact Information
@@ -46,6 +52,7 @@ const Profile = (props) => {
                             <span className = 'text-white'>Caleb Almes</span>
                         </div>
                         <div>
+                  
                             <button className="btn btn-light btn-sm">Edit</button><a href = '/kidprofile'></a>
                         </div>
                     </div>
