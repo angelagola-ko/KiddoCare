@@ -1,4 +1,4 @@
-# KiddoKARE
+# KiddoCARE
 
 ## Table of Contents
 
