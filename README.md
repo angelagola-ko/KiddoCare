@@ -19,6 +19,8 @@ Clone repo
 
 ## Usage
 
+![Example Image]()
+
 open terminal, type npm install in source directory, then type npm start
 
 ## License
