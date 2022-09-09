@@ -32,4 +32,4 @@ Have questions about this project?
 
 ## Credits
 
-Angela G, Brandon Benson, Giovanni Ciaro, Paige Caiozzo, Tristin Nguyen
+Angela Gola, Brandon Benson, Giovanni Ciaro, Paige Caiozzo, Tristin Nguyen
