@@ -1,6 +1,9 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.15.0"
+  },
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.6.9",
