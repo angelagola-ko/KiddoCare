@@ -19,7 +19,7 @@ Clone repo
 
 ## Usage
 
-![Example Image]()
+![image](https://user-images.githubusercontent.com/95582357/189251299-3e659e31-ae5d-4539-9c17-cbbe430b8637.png)
 
 open terminal, type npm install in source directory, then type npm start
 
