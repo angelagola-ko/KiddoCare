@@ -32,11 +32,16 @@
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "concurrently": "^7.4.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "node server/seeds/users.js",
+    "build": "cd client && npm run build",
+    "client": "cd client && npm start"
   },
   "eslintConfig": {
     "extends": [
